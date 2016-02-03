@@ -3,10 +3,11 @@
 ##########################################
 
 # Install, not upgrade
+cdrom
 install
 
 # Install from a friendly mirror and add updates
-url --mirrorlist http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=os
+#url --mirrorlist http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=os
 repo --name=centos-updates --mirrorlist=http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=updates
 
 # Language and keyboard setup (German Keyboard)
