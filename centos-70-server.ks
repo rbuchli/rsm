@@ -142,4 +142,9 @@ echo .
 #grub2-mkconfig -o /boot/grub2/grub.cfg >> /root/ks-post.debug.log 2&>1
 #echo .
 
+default  Install CentOS 7 x64
+label Install CentOS 7 x64
+kernel centos7/vmlinuz
+APPEND initrd=centos7/initrd.img inst.repo=http://mirror.centos.org/centos/7/os/x86_64/ lang=en_US keymap=de ip=172.20.73.77
+
 %end
