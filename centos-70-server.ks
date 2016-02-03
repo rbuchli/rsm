@@ -9,9 +9,9 @@ install
 url --mirrorlist http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=os
 repo --name=centos-updates --mirrorlist=http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=updates
 
-# Language and keyboard setup (Swiss Keyboard)
+# Language and keyboard setup (German Keyboard)
 lang en_US.UTF-8
-keyboard sz
+keyboard de
 
 # Configure networking without IPv6, firewall off
 
@@ -24,10 +24,10 @@ network --onboot=yes --device=eth0 --bootproto=static --ip=172.20.73.77 --netmas
 firewall --enabled --ssh
 
 # Set timezone
-timezone --utc Etc/CET
+timezone --utc Europe/Zurich
 
 # Authentication
-rootpw --lock
+rootpw firstPW
 # if you want to preset the root password in a public kickstart file, use SHA512crypt e.g.
 # rootpw --iscrypted $6$9dC4m770Q1o$FCOvPxuqc1B22HM21M5WuUfhkiQntzMuAV7MY0qfVcvhwNQ2L86PcnDWfjDd12IFxWtRiTuvO/niB0Q3Xpf2I.
 user --name=centos --password=Asdfqwerty --plaintext --gecos="CentOS User" --shell=/bin/bash --groups=user,wheel
@@ -88,7 +88,7 @@ echo -n "."
 # simple eth0 config, again not hard-coded to the build hardware
 cat > /etc/sysconfig/network-scripts/ifcfg-eth0 << EOF
 DEVICE="eth0"
-BOOTPROTO="dhcp"
+BOOTPROTO="static"
 ONBOOT="yes"
 TYPE="Ethernet"
 PERSISTENT_DHCLIENT="yes"
