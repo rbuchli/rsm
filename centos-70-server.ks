@@ -128,19 +128,19 @@ echo .
 
 # fix boot for older pygrub/XenServer
 # you should comment out this entire section if on XenServer Creedence/Xen 4.4
-#echo -n "Fixing boot"
-#echo "== GRUB fixes ==" >> /root/ks-post.debug.log
-#cp /boot/grub2/grub.cfg /boot/grub2/grub.cfg.bak
-#cp /etc/default/grub /etc/default/grub.bak
-#cp --no-preserve=mode /etc/grub.d/00_header /etc/grub.d/00_header.bak
-#sed -i 's/GRUB_DEFAULT=saved/GRUB_DEFAULT=0/' /etc/default/grub
-#sed -i 's/default="\\${next_entry}"/default="0"/' /etc/grub.d/00_header
-#echo -n "."
-#cp --no-preserve=mode /etc/grub.d/10_linux /etc/grub.d/10_linux.bak
-#sed -i 's/${sixteenbit}//' /etc/grub.d/10_linux
-#echo -n "."
-#grub2-mkconfig -o /boot/grub2/grub.cfg >> /root/ks-post.debug.log 2&>1
-#echo .
+echo -n "Fixing boot"
+echo "== GRUB fixes ==" >> /root/ks-post.debug.log
+cp /boot/grub2/grub.cfg /boot/grub2/grub.cfg.bak
+cp /etc/default/grub /etc/default/grub.bak
+cp --no-preserve=mode /etc/grub.d/00_header /etc/grub.d/00_header.bak
+sed -i 's/GRUB_DEFAULT=saved/GRUB_DEFAULT=0/' /etc/default/grub
+sed -i 's/default="\\${next_entry}"/default="0"/' /etc/grub.d/00_header
+echo -n "."
+cp --no-preserve=mode /etc/grub.d/10_linux /etc/grub.d/10_linux.bak
+sed -i 's/${sixteenbit}//' /etc/grub.d/10_linux
+echo -n "."
+grub2-mkconfig -o /boot/grub2/grub.cfg >> /root/ks-post.debug.log 2&>1
+echo .
 
 default  Install CentOS 7 x64
 label Install CentOS 7 x64
